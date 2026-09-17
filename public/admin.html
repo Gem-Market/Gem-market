@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>پنل مدیریت | جم مارکت</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M7 3h10l4 6-9 12L3 9z' fill='%2358b7ff'/%3E%3C/svg%3E">
+<link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<svg style="position:absolute;width:0;height:0" aria-hidden="true">
+  <symbol id="i-gem" viewBox="0 0 24 24"><path d="M7 3h10l4 6-9 12L3 9l4-6Z"/><path d="M3 9h18" opacity=".55"/><path d="M7 3l5 6 5-6" opacity=".55"/><path d="M12 9v12" opacity=".35"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+  <symbol id="i-trash" viewBox="0 0 24 24"><path d="M3 6h18M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2m3 0v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+  <symbol id="i-edit" viewBox="0 0 24 24"><path d="M17 3a2.85 2.85 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+  <symbol id="i-user" viewBox="0 0 24 24"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+  <symbol id="i-gamepad" viewBox="0 0 24 24"><path d="M6 9h4M8 7v4m7 0h.01M18 9h.01"/><path d="M17.5 5h-11A4.5 4.5 0 0 0 2 9.5v5A4.5 4.5 0 0 0 6.5 19c1.5 0 2.2-.9 3.5-2h4c1.3 1.1 2 2 3.5 2a4.5 4.5 0 0 0 4.5-4.5v-5A4.5 4.5 0 0 0 17.5 5Z"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></symbol>
+  <symbol id="i-logout" viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="m16 17 5-5-5-5"/><path d="M21 12H9"/></symbol>
+  <symbol id="i-dash" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></symbol>
+  <symbol id="i-flame" viewBox="0 0 24 24"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.07-2.14-.22-4.05 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.15.43-2.29 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></symbol>
+  <symbol id="i-ext" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6M10 14 21 3"/></symbol>
+  <symbol id="i-img" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.09-3.09a2 2 0 0 0-2.82 0L6 21"/></symbol>
+  <symbol id="i-upload" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M17 8l-5-5-5 5M12 3v12"/></symbol>
+  <symbol id="i-chev" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+  <symbol id="i-zap" viewBox="0 0 24 24"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></symbol>
+</svg>
+
+<div class="lightbar" aria-hidden="true"></div>
+
+<!-- صفحه قفل: برای غیرمدیرها -->
+<div class="lock" id="lockScreen">
+  <div class="lock-box">
+    <svg class="ic lock-ic"><use href="#i-shield"/></svg>
+    <h2>دسترسی محدود</h2>
+    <p>این بخش فقط برای مدیر سایت است.<br>برای ورود، از صفحه اصلی با حساب مدیر لاگین کنید.</p>
+    <a class="btn btn-p" href="/?auth=1">ورود با حساب مدیر</a>
+  </div>
+</div>
+
+<!-- ═══ پنل مدیریت ═══ -->
+<div id="adminApp" hidden>
+  <header class="hdr">
+    <div class="hdr-in">
+      <a class="logo" href="/">
+        <svg class="ic lg-gem"><use href="#i-gem"/></svg>
+        <b>جم مارکت<small>ADMIN PANEL</small></b>
+      </a>
+      <span class="ad-badge"><svg class="ic" style="width:13px;height:13px"><use href="#i-shield"/></svg>پنل مدیریت</span>
+      <div class="hact">
+        <div class="auth-area"><div class="uchip" style="pointer-events:none"><span class="u-av" id="admAv">A</span><span class="u-name" id="admName"></span></div></div>
+        <a class="btn btn-g ad-viewlink" href="/"><svg class="ic"><use href="#i-ext"/></svg><span>مشاهده سایت</span></a>
+        <button class="ibtn" data-act="logout" title="خروج" aria-label="خروج"><svg class="ic"><use href="#i-logout"/></svg></button>
+      </div>
+    </div>
+  </header>
+
+  <div class="ad-shell">
+    <aside class="ad-side">
+      <nav class="ad-nav" id="adNav">
+        <button class="on" data-view="dash"><svg class="ic"><use href="#i-dash"/></svg>داشبورد</button>
+        <button data-view="gems"><svg class="ic"><use href="#i-gem"/></svg>پکیج‌های جم</button>
+        <button data-view="accounts"><svg class="ic"><use href="#i-gamepad"/></svg>اکانت‌ها</button>
+        <button data-view="users"><svg class="ic"><use href="#i-users"/></svg>کاربران</button>
+      </nav>
+    </aside>
+    <main>
+      <!-- داشبورد -->
+      <section class="ad-view on" id="v-dash">
+        <div class="stats" id="statCards"></div>
+        <div class="ad-card">
+          <h3><svg class="ic"><use href="#i-users"/></svg>آخرین کاربران ثبت‌نام‌شده</h3>
+          <div class="tb-scroll"><table class="tb">
+            <thead><tr><th>نام کاربری</th><th>نقش</th><th>تاریخ ثبت‌نام</th><th>آخرین ورود</th></tr></thead>
+            <tbody id="recentTB"></tbody>
+          </table></div>
+        </div>
+      </section>
+
+      <!-- جم‌ها -->
+      <section class="ad-view" id="v-gems">
+        <div class="ad-sec-h">
+          <div><h2>پکیج‌های جم</h2><p>قیمت‌ها را ویرایش کن و روی «ذخیره تغییرات» بزن تا برای همه کاربران اعمال شود.</p></div>
+        </div>
+        <div class="ad-card">
+          <h3><svg class="ic"><use href="#i-gem"/></svg>قیمت‌گذاری پکیج‌ها</h3>
+          <div class="tb-scroll"><table class="tb">
+            <thead><tr><th>پکیج</th><th>قیمت (تومان)</th><th>قیمت هر الماس</th><th>پیشنهاد ویژه</th></tr></thead>
+            <tbody id="gemTB"></tbody>
+          </table></div>
+        </div>
+      </section>
+
+      <!-- اکانت‌ها -->
+      <section class="ad-view" id="v-accounts">
+        <div class="ad-sec-h">
+          <div><h2>اکانت‌های فروشی</h2><p>افزودن، ویرایش و حذف اکانت‌ها — تغییرات بلافاصله در سایت نمایش داده می‌شود.</p></div>
+          <button class="btn btn-p" data-act="add-acc"><svg class="ic"><use href="#i-plus"/></svg>افزودن اکانت جدید</button>
+        </div>
+        <div class="acards" id="accList"></div>
+      </section>
+
+      <!-- کاربران -->
+      <section class="ad-view" id="v-users">
+        <div class="ad-sec-h">
+          <div><h2>کاربران سایت</h2><p>تمام حساب‌های کاربری ثبت‌شده روی سرور</p></div>
+        </div>
+        <div class="ad-card">
+          <div class="tb-scroll"><table class="tb">
+            <thead><tr><th>نام کاربری</th><th>نقش</th><th>تاریخ ثبت‌نام</th><th>آخرین ورود</th></tr></thead>
+            <tbody id="userTB"></tbody>
+          </table></div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- نوار ذخیره (جم‌ها) -->
+  <div class="savebar" id="saveBar" hidden>
+    <span class="dot"></span><span>تغییرات ذخیره نشده</span>
+    <button class="btn btn-p" id="gemSave"><svg class="ic"><use href="#i-check"/></svg>ذخیره تغییرات</button>
+    <button class="btn btn-g" id="gemReset">انصراف</button>
+  </div>
+
+  <!-- مودال افزودن/ویرایش اکانت -->
+  <div class="modal" id="accModal" role="dialog" aria-modal="true">
+    <div class="m-box m-wide">
+      <div class="m-head"><h3 id="amTitle"><svg class="ic"><use href="#i-gamepad"/></svg>افزودن اکانت</h3><button class="ibtn" data-act="close-am" aria-label="بستن"><svg class="ic"><use href="#i-x"/></svg></button></div>
+      <form class="m-in" id="accForm" novalidate>
+        <label class="fld"><span class="fld-l"><svg class="ic"><use href="#i-gamepad"/></svg>اسم اکانت</span>
+          <input id="afName" type="text" placeholder="مثلاً: اکانت هیرویک | فول کاراکتر"></label>
+        <div class="fgrid">
+          <label class="fld"><span class="fld-l"><svg class="ic"><use href="#i-zap"/></svg>لول</span>
+            <input id="afLevel" type="text" class="ltr" inputmode="numeric" placeholder="40"></label>
+          <label class="fld"><span class="fld-l"><svg class="ic"><use href="#i-user"/></svg>آیدی بازی</span>
+            <input id="afPid" type="text" class="ltr" inputmode="numeric" placeholder="251478963"></label>
+          <label class="fld fg-x2"><span class="fld-l"><svg class="ic"><use href="#i-gem"/></svg>قیمت (تومان)</span>
+            <input id="afPrice" type="text" class="ltr" inputmode="numeric" placeholder="500000"></label>
+        </div>
+        <div class="fld"><span class="fld-l"><svg class="ic"><use href="#i-shield"/></svg>رنک</span>
+          <div class="dd dd-wide" id="rankDD">
+            <button class="dd-btn" type="button" data-act="rank-toggle">
+              <i class="dotc" id="rankDot"></i><span>رنک:</span><b id="rankLbl">گلد</b>
+              <svg class="ic chev"><use href="#i-chev"/></svg>
+            </button>
+            <div class="dd-menu" id="rankMenu" hidden></div>
+          </div>
+        </div>
+        <div class="fld"><span class="fld-l"><svg class="ic"><use href="#i-img"/></svg>عکس اکانت</span>
+          <div class="dz" id="dz" data-act="dz">
+            <input type="file" id="afFile" accept="image/jpeg,image/png,image/webp,image/gif" hidden>
+            <div class="dz-empty" id="dzEmpty">
+              <svg class="ic"><use href="#i-upload"/></svg>
+              <b>عکس را بکش و اینجا رها کن</b>
+              <span>یا برای انتخاب از دستگاه کلیک کن</span>
+              <em>JPG / PNG / WEBP — حداکثر ۳ مگابایت</em>
+            </div>
+            <div class="dz-prev" id="dzPrev" hidden>
+              <img id="dzImg" alt="پیش‌نمایش عکس اکانت">
+              <div class="dz-meta"><b id="dzName"></b><span id="dzSize"></span></div>
+              <div class="dz-acts">
+                <button type="button" class="btn btn-g" data-act="dz-change"><svg class="ic"><use href="#i-edit"/></svg>تغییر عکس</button>
+                <button type="button" class="btn btn-d" data-act="dz-clear"><svg class="ic"><use href="#i-trash"/></svg>حذف</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="fld-row">
+          <label class="sw"><input type="checkbox" id="afSpecial"><i></i></label>
+          <span class="fld-l">اکانت ویژه (نمایش در فیلتر «ویژه» و برچسب روی کارت)</span>
+        </div>
+        <button class="btn btn-p btn-lg" type="submit"><svg class="ic"><use href="#i-check"/></svg>ذخیره اکانت</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- مودال تأیید حذف -->
+  <div class="modal" id="cfModal" role="dialog" aria-modal="true">
+    <div class="m-box" style="max-width:420px">
+      <div class="m-head"><h3><svg class="ic"><use href="#i-trash"/></svg>تأیید حذف</h3><button class="ibtn" data-act="close-cf" aria-label="بستن"><svg class="ic"><use href="#i-x"/></svg></button></div>
+      <div class="m-in">
+        <p class="cf-txt" id="cfTxt"></p>
+        <div style="display:flex;gap:10px">
+          <button class="btn btn-d btn-lg" id="cfYes"><svg class="ic"><use href="#i-trash"/></svg>بله، حذف کن</button>
+          <button class="btn btn-g btn-lg" data-act="close-cf" type="button">انصراف</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="toasts" id="toasts" aria-live="polite"></div>
+</div>
+
+<script>
+(()=>{'use strict';
+const $=(s,c=document)=>c.querySelector(s), $$=(s,c=document)=>[...c.querySelectorAll(s)];
+const faNum=n=>Number(n).toLocaleString('fa-IR');
+const money=n=>faNum(n)+' تومان';
+const esc=s=>String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+const toEn=s=>String(s).replace(/[۰-۹]/g,c=>'۰۱۲۳۴۵۶۷۸۹'.indexOf(c)).replace(/[^0-9]/g,'');
+const faDT=d=>{try{return new Intl.DateTimeFormat('fa-IR',{year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit'}).format(new Date(d))}catch(e){return '—'}};
+
+const RANKS={
+  bronze:{fa:'برنز',c:'#c9884b'}, silver:{fa:'نقره',c:'#c3cbdb'}, gold:{fa:'گلد',c:'#e6c14d'},
+  platinum:{fa:'پلاتینیوم',c:'#63d3cc'}, diamond:{fa:'الماس',c:'#57b6ff'}, heroic:{fa:'هیرویک',c:'#ff5d6e'},
+  grandmaster:{fa:'گرندماستر',c:'#ff8a3d'},
+};
+let GEMS=[],ACCOUNTS=[],USERS=[],gemDraft=[],dirty=false,editId=null,pendingDel=null;
+let selRank='gold',pendingFile=null,currentImgUrl=null,objUrl=null;
+
+/* نور RGB مشابه سایت اصلی */
+let hue=212; const root=document.documentElement;
+(function loop(){hue=(hue+.25)%360;root.style.setProperty('--hue',hue.toFixed(1));requestAnimationFrame(loop);})();
+
+function toast(msg,type='ok'){
+  const box=$('#toasts'),t=document.createElement('div');
+  t.className='toast'+(type==='warn'?' warn':'');
+  t.innerHTML=`<svg class="ic"><use href="#i-${type==='warn'?'flame':'check'}"/></svg><span>${esc(msg)}</span>`;
+  box.appendChild(t);
+  setTimeout(()=>{t.classList.add('out');setTimeout(()=>t.remove(),320)},3000);
+}
+async function api(url,method,body){
+  const r=await fetch(url,{method:method||'GET',headers:body?{'Content-Type':'application/json'}:undefined,body:body?JSON.stringify(body):undefined});
+  let d=null; try{d=await r.json()}catch(e){}
+  if(!r.ok)throw new Error((d&&d.error)||('خطا ('+r.status+')'));
+  return d;
+}
+function openModal(el){el.classList.add('open');document.body.style.overflow='hidden';}
+function closeModal(el){el.classList.remove('open');document.body.style.overflow='';}
+
+/* ─── داشبورد و کاربران ─── */
+function renderDash(){
+  const stats=[
+    {ic:'i-users',n:USERS.length,l:'کاربر ثبت‌شده'},
+    {ic:'i-gem',n:GEMS.length,l:'پکیج جم'},
+    {ic:'i-gamepad',n:ACCOUNTS.length,l:'اکانت فروشی'},
+    {ic:'i-flame',n:GEMS.filter(g=>g.special).length+ACCOUNTS.filter(a=>a.special).length,l:'محصول ویژه'},
+  ];
+  $('#statCards').innerHTML=stats.map(s=>`<div class="statc"><svg class="ic"><use href="#${s.ic}"/></svg><b>${faNum(s.n)}</b><span>${s.l}</span></div>`).join('');
+  $('#recentTB').innerHTML=USERS.slice(0,5).map(u=>userRow(u)).join('')
+    ||'<tr><td colspan="4" style="color:var(--dim)">هنوز کاربری ثبت‌نام نکرده است</td></tr>';
+}
+function userRow(u){
+  return `<tr><td><b>${esc(u.username)}</b></td>
+    <td>${u.role==='admin'?'<span class="role-adm">مدیر</span>':'<span class="role-user">کاربر</span>'}</td>
+    <td>${faDT(u.createdAt)}</td><td>${u.lastLogin?faDT(u.lastLogin):'—'}</td></tr>`;
+}
+function renderUsers(){
+  $('#userTB').innerHTML=USERS.map(userRow).join('')||'<tr><td colspan="4" style="color:var(--dim)">کاربری وجود ندارد</td></tr>';
+}
+
+/* ─── جدول جم‌ها ─── */
+function renderGemsTable(){gemDraft=GEMS.map(g=>({id:g.id,amount:g.amount,price:g.price,special:!!g.special}));drawGems();}
+function drawGems(){
+  $('#gemTB').innerHTML=gemDraft.map((g,i)=>`
+    <tr data-i="${i}">
+      <td><b style="font-size:16px">${faNum(g.amount)}</b> <span style="color:var(--dim);font-size:12px">الماس</span></td>
+      <td><input class="tin" data-f="price" value="${g.price}" inputmode="numeric" aria-label="قیمت"></td>
+      <td class="per" style="color:var(--dim);font-size:12px">${faNum(Math.round(g.price/g.amount))} ت / الماس</td>
+      <td><label class="sw"><input type="checkbox" data-f="special" ${g.special?'checked':''}><i></i></label></td>
+    </tr>`).join('');
+  setDirty(false);
+}
+function setDirty(v){dirty=v;$('#saveBar').hidden=!v;}
+ $('#gemTB').addEventListener('input',e=>{
+  const tr=e.target.closest('tr'); if(!tr)return;
+  const g=gemDraft[+tr.dataset.i];
+  if(e.target.dataset.f==='price'){g.price=Math.max(0,+toEn(e.target.value)||0);}
+  if(e.target.dataset.f==='special'){g.special=e.target.checked;}
+  tr.classList.add('dirty');
+  tr.querySelector('.per').textContent=faNum(Math.round(g.price/g.amount))+' ت / الماس';
+  setDirty(true);
+});
+ $('#gemSave').addEventListener('click',async()=>{
+  if(!dirty)return;
+  try{
+    const d=await api('/api/admin/gems','PUT',{gems:gemDraft.map(g=>({id:g.id,price:g.price,special:g.special}))});
+    GEMS=d.gems; renderGemsTable();
+    toast('قیمت پکیج‌ها ذخیره شد و برای همه کاربران اعمال شد');
+  }catch(e){toast(e.message,'warn');}
+});
+ $('#gemReset').addEventListener('click',renderGemsTable);
+
+/* ─── کارت‌های اکانت در پنل ─── */
+function renderAccAdmin(){
+  $('#accList').innerHTML=ACCOUNTS.length?ACCOUNTS.map(a=>`
+    <div class="acard">
+      <div class="acard-img"><img src="${esc(a.img)}" alt="" loading="lazy">${a.special?'<span class="acard-sp">ویژه</span>':''}</div>
+      <div class="acard-b">
+        <b>${esc(a.name)}</b>
+        <div class="acard-meta">
+          <span style="color:${RANKS[a.rank].c}">${RANKS[a.rank].fa}</span>
+          <span>لول ${faNum(a.level)}</span>
+          <span>${a.pid?('ID '+esc(a.pid)):'آیدی ثبت نشده'}</span>
+          <span>${money(a.price)}</span>
+        </div>
+        <div class="acard-btns">
+          <button class="btn btn-g" data-act="edit-acc" data-id="${a.id}"><svg class="ic"><use href="#i-edit"/></svg>ویرایش</button>
+          <button class="btn btn-d" data-act="del-acc" data-id="${a.id}"><svg class="ic"><use href="#i-trash"/></svg>حذف</button>
+        </div>
+      </div>
+    </div>`).join('')
+  :`<div class="ad-empty"><svg class="ic" style="width:36px;height:36px;margin:0 auto 12px;display:block;color:var(--line2)"><use href="#i-gamepad"/></svg>هنوز اکانتی ثبت نشده است — اولین اکانت را اضافه کن</div>`;
+}
+
+/* ─── چوز‌باکس مدرن رنک ─── */
+const rankDD=$('#rankDD'), rankMenu=$('#rankMenu');
+rankMenu.innerHTML=Object.keys(RANKS).map(k=>`
+  <button type="button" class="dd-rank" data-act="rank-pick" data-r="${k}">
+    <i style="background:${RANKS[k].c}"></i>${RANKS[k].fa}
+    <svg class="ic ck"><use href="#i-check"/></svg>
+  </button>`).join('');
+function setRank(r){
+  selRank=r;
+  $('#rankLbl').textContent=RANKS[r].fa;
+  $('#rankDot').style.background=RANKS[r].c;
+  $$('#rankMenu .dd-rank').forEach(b=>b.classList.toggle('on',b.dataset.r===r));
+}
+setRank('gold');
+
+/* ─── دراپ‌زون آپلود عکس ─── */
+const dzBox=$('#dz'),dzEmpty=$('#dzEmpty'),dzPrev=$('#dzPrev'),dzImg=$('#dzImg'),dzName=$('#dzName'),dzSize=$('#dzSize'),fileIn=$('#afFile');
+let dragDepth=0;
+dzBox.addEventListener('dragenter',e=>{e.preventDefault();dragDepth++;dzBox.classList.add('over');});
+dzBox.addEventListener('dragover',e=>e.preventDefault());
+dzBox.addEventListener('dragleave',()=>{if(--dragDepth<=0){dragDepth=0;dzBox.classList.remove('over');}});
+dzBox.addEventListener('drop',e=>{
+  e.preventDefault();dragDepth=0;dzBox.classList.remove('over');
+  handleFile(e.dataTransfer.files&&e.dataTransfer.files[0]);
+});
+fileIn.addEventListener('change',()=>{handleFile(fileIn.files&&fileIn.files[0]);fileIn.value='';});
+function handleFile(file){
+  if(!file)return;
+  if(!/^image\/(jpeg|png|webp|gif)$/.test(file.type)){toast('فرمت عکس نامعتبر است (JPG، PNG، WEBP یا GIF)','warn');return;}
+  if(file.size>3*1024*1024){toast('حجم عکس بیشتر از ۳ مگابایت است','warn');return;}
+  pendingFile=file;
+  if(objUrl)URL.revokeObjectURL(objUrl);
+  objUrl=URL.createObjectURL(file);
+  showPrev(objUrl,file.name,file.size);
+}
+function showPrev(src,name,size){
+  dzEmpty.hidden=true;dzPrev.hidden=false;
+  dzImg.src=src;dzName.textContent=name;dzSize.textContent=size?faNum(Math.max(1,Math.round(size/1024)))+' کیلوبایت':'—';
+}
+function clearDz(){
+  pendingFile=null;currentImgUrl=null;
+  if(objUrl){URL.revokeObjectURL(objUrl);objUrl=null;}
+  dzEmpty.hidden=false;dzPrev.hidden=true;fileIn.value='';
+}
+async function uploadImage(file){
+  const r=await fetch('/api/admin/upload',{method:'POST',headers:{'Content-Type':file.type},body:file});
+  const d=await r.json().catch(()=>null);
+  if(!r.ok)throw new Error((d&&d.error)||'خطا در آپلود عکس');
+  return d.url;
+}
+
+/* ─── افزودن / ویرایش اکانت ─── */
+function openAccModal(acc){
+  editId=acc?acc.id:null;
+  pendingFile=null;
+  $('#amTitle').innerHTML=`<svg class="ic"><use href="#i-gamepad"/></svg>${acc?'ویرایش اکانت':'افزودن اکانت جدید'}`;
+  afName.value=acc?acc.name:'';
+  afLevel.value=acc?acc.level:'40';
+  afPid.value=acc?(acc.pid||''):'';
+  afPrice.value=acc?acc.price:'';
+  setRank(acc?acc.rank:'gold');
+  afSpecial.checked=acc?!!acc.special:false;
+  currentImgUrl=acc?acc.img:null;
+  if(acc&&acc.img)showPrev(acc.img,'عکس فعلی اکانت',0);
+  else clearDz();
+  openModal($('#accModal'));
+  setTimeout(()=>afName.focus(),80);
+}
+ $('#accForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  const btn=$('#accForm button[type=submit]');
+  btn.classList.add('busy');
+  try{
+    let img=currentImgUrl;
+    if(pendingFile)img=await uploadImage(pendingFile);
+    if(!img)throw new Error('عکس اکانت را انتخاب یا آپلود کن');
+    const body={
+      name:afName.value.trim(),
+      rank:selRank,
+      level:+toEn(afLevel.value),
+      pid:toEn(afPid.value),
+      price:+toEn(afPrice.value),
+      img, special:afSpecial.checked,
+    };
+    if(editId)await api('/api/admin/accounts/'+editId,'PUT',body);
+    else await api('/api/admin/accounts','POST',body);
+    closeModal($('#accModal'));
+    await refreshAll();
+    toast(editId?'اکانت ویرایش شد و تغییرات برای همه کاربران اعمال شد':'اکانت جدید اضافه شد و در سایت نمایش داده می‌شود');
+  }catch(err){toast(err.message,'warn');}
+  finally{btn.classList.remove('busy');}
+});
+
+/* ─── حذف ─── */
+ $('#cfYes').addEventListener('click',async()=>{
+  const id=pendingDel; pendingDel=null;
+  closeModal($('#cfModal'));
+  if(!id)return;
+  try{
+    await api('/api/admin/accounts/'+id,'DELETE');
+    await refreshAll();
+    toast('اکانت حذف شد');
+  }catch(e){toast(e.message,'warn');}
+});
+
+/* ─── ناوبری و رویدادها ─── */
+ $('#adNav').addEventListener('click',e=>{
+  const b=e.target.closest('[data-view]'); if(!b)return;
+  $$('#adNav button').forEach(x=>x.classList.toggle('on',x===b));
+  $$('.ad-view').forEach(v=>v.classList.toggle('on',v.id==='v-'+b.dataset.view));
+  if(b.dataset.view!=='gems'&&dirty)renderGemsTable();
+});
+document.addEventListener('click',async e=>{
+  if(!e.target.closest('#rankDD')){rankMenu.hidden=true;rankDD.classList.remove('open');}
+  const t=e.target.closest('[data-act]'); if(!t)return;
+  const id=t.dataset.id;
+  switch(t.dataset.act){
+    case 'dz': case 'dz-change': fileIn.click(); break;
+    case 'dz-clear': clearDz(); break;
+    case 'rank-toggle':{const open=rankMenu.hidden;rankMenu.hidden=!open;rankDD.classList.toggle('open',open);}break;
+    case 'rank-pick': setRank(t.dataset.r); rankMenu.hidden=true; rankDD.classList.remove('open'); break;
+    case 'add-acc': openAccModal(null); break;
+    case 'edit-acc': openAccModal(ACCOUNTS.find(a=>a.id===id)); break;
+    case 'del-acc':{
+      const a=ACCOUNTS.find(x=>x.id===id); if(!a)break;
+      pendingDel=id;
+      $('#cfTxt').textContent=`از حذف «${a.name}» مطمئنی؟ این عمل قابل بازگشت نیست.`;
+      openModal($('#cfModal'));
+      break;
+    }
+    case 'close-am': closeModal($('#accModal')); break;
+    case 'close-cf': pendingDel=null; closeModal($('#cfModal')); break;
+    case 'logout':
+      try{await fetch('/api/auth/logout',{method:'POST'});}catch(err){}
+      location.href='/';
+      break;
+  }
+});
+[$('#accModal'),$('#cfModal')].forEach(m=>m.addEventListener('click',e=>{if(e.target===m)closeModal(m);}));
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape'){closeModal($('#accModal'));closeModal($('#cfModal'));}
+});
+
+/* ─── بارگذاری داده‌ها ─── */
+async function refreshAll(){
+  const [p,u]=await Promise.all([api('/api/products'),api('/api/admin/users')]);
+  GEMS=p.gems; ACCOUNTS=p.accounts; USERS=u.users;
+  renderDash(); renderGemsTable(); renderAccAdmin(); renderUsers();
+}
+(async function boot(){
+  let me=null;
+  try{me=await api('/api/me');}catch(e){}
+  if(!me.user||me.user.role!=='admin')return;
+  $('#lockScreen').hidden=true;
+  $('#adminApp').hidden=false;
+  $('#admName').textContent=me.user.username;
+  $('#admAv').textContent=me.user.username[0].toUpperCase();
+  try{await refreshAll();}catch(e){toast('خطا در دریافت داده‌ها: '+e.message,'warn');}
+})();
+})();
+</script>
+</body>
+</html>
